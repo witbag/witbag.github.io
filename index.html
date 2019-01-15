@@ -1,0 +1,50 @@
+---
+layout: home
+title: Witek
+---
+
+		<div class="blurb">
+			<h1>Sorry!</h1>
+			<p>The website is not ready</p>
+</div> 
+
+
+<form name="jksearch" action="http://www.google.com/search" method="get" onSubmit="jksitesearch(this)">
+
+<input id="hiddenquery" type="hidden" name="q" />
+<input name="qfront" type="text" style="width: 160px" value="" /> <input type="submit" value="Search" /><br />
+<div style="font: bold 12px Arial;">Google:<input name="se" type="radio" checked>  Yahoo:<input name="se" type="radio">  Bing:<input name="se" type="radio">
+</div>
+
+<script type="text/javascript">
+
+//Enter domain of site to search.
+var domainroot="witbag.github.io"
+
+var searchaction=[ //form action for the 3 search engines
+"http://www.google.com/search",
+"http://search.yahoo.com/search",
+"http://search.bing.com/results.aspx"
+]
+
+var queryfieldname=["q","p","q"] //name of hidden query form for the 3 search engines
+
+function switchaction(cur, index){
+cur.form.action=searchaction[index]
+document.getElementById("hiddenquery").name=queryfieldname[index]
+}
+
+function jksitesearch(curobj){
+for (i=0; i< document.jksearch.se.length; i++){ //loop through radio to see which is checked
+if (document.jksearch.se[i].checked==true)
+switchaction(document.jksearch.se[i], i)
+}
+document.getElementById("hiddenquery").value="site:"+domainroot+" "+curobj.qfront.value
+}
+
+
+</script>
+
+</p>
+
+</form>

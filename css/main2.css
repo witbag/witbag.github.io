@@ -1,0 +1,165 @@
+body {
+margin:0;
+padding:0;
+line-height: 1.5em;
+font-family: "Lucida Console", "Courier New", monospace;
+font-size: 13px;
+background: #EEEEEE;
+}
+
+#style_container {
+width: 960px;
+margin: auto;
+background: #FFFFFF;
+}
+#style_header {
+height: 100px;
+background: url(AR.png) no-repeat;
+}
+#style_content {
+width: 960px;
+}
+#style_left_column {
+background: #FFFFFF;
+float: left;
+width: 240px;
+min-height: 600px;
+}
+#style_right_column {
+float: left;
+width: 720px;
+min-height: 400px;
+}
+#style_footer {
+clear: left;
+background: #AA0000;
+padding: 5px;
+font-size: 11px;
+color: #FFFFFF;
+}
+#style_footer  a {
+color: #FFFFFF;
+}
+#style_title {
+padding-top: 30px;
+padding-left: 20px;
+font-family:Georgia, "Times New Roman", Times, serif;
+font-size: 36px;
+font-style: italic;
+color: #000000;
+}
+#style_subtitle {
+padding-top: 20px;
+padding-left: 20px;
+font-family:Georgia, "Times New Roman", Times, serif;
+font-weight: bold;
+font-size: 16px;
+color: #000000;
+}
+
+.section_box {
+margin: 10px;
+padding: 10px;
+background: #82CAFA;
+color: #000000;
+}
+.section_box0{
+margin-top: 0px;
+padding: 10px;
+background: #FFFFFF;
+color: #000000;
+}
+.section_box1 {
+margin-top: 15px;
+padding: 10px;
+background: #FFFFFF;
+color: #616D7E;
+}
+.section_box2 {
+margin-top: 15px;
+padding: 10px;
+background: #FDD017;
+color: #990000;
+}
+.section_box3 {
+margin-top: 15px;
+padding: 10px;
+background: #87F717;
+color: #254117;
+}
+.section_box a {
+color: #FFFF99;
+}
+.section_box0 a {
+color: #008000;
+}
+.section_box1 a {
+color: #008000;
+}
+.section_box2 a {
+color: #008000;
+}
+.section_box3 a {
+color: #FFFF99;
+}
+.text_area {
+margin: 10px;
+}
+.title {
+padding-top: 10px;
+padding-bottom: 10px;
+font-size: 16px;
+font-weight: bold;
+}
+.subtitle {
+padding-bottom: 10px;
+font-size: 14px;
+font-weight: bold;
+}
+.subsubtitle {
+padding-bottom: 5px;
+font-size: 15px;
+font-weight: bold;
+}
+
+a:link { color: #0066CC; text-decoration: none} 
+a:visited { color: #0066CC; text-decoration: none} 
+a:active { color: #008000; text-decoration: underline} 
+a:hover { color: #008000; text-decoration: underline}
+
+/* Menu Credits: Dynamic Drive CSS Library */
+/* URL: http://www.dynamicdrive.com/style/ */
+.solidblockmenu{
+margin: 0;
+padding: 0;
+float: left;
+font: bold 12px Arial;
+width: 100%;
+border: 1px solid #FFFFFF;
+border-width: 1px 0;
+background: black url(blde.png) center center repeat-x;
+}
+.solidblockmenu li{
+display: inline;
+}
+.solidblockmenu li a{
+float: left;
+color: white;
+padding: 7px 9px;
+text-decoration: none;
+border-right: 1px solid white;
+}
+.solidblockmenu li a:visited{
+color: white;
+}
+.solidblockmenu li .current{
+color: white;
+background: transparent url(blac.png) center center repeat-x;
+}
+.solidblockmenu li a:hover{
+color: white;
+background: transparent url(blho.png) center center repeat-x;
+}
+p.iepara{
+padding-top: 1em;
+}
