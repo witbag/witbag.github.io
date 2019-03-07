@@ -10,13 +10,13 @@ height: 82px;
 background: #b5d8a6;
 }
 #style_content {                /*MAIN TEXT*/
-width: 100%;
+/*width: 100%;*/
 background: #f4d7ad;
 font-size: 17px;
 padding-right: 20px;
 }
 #style_title {                  /*TOP BAR TITLE*/
-padding-top: 12px;
+padding-top: 13px;
 padding-left: 20px;
 font-family:Georgia, "Times New Roman", Times, serif;
 font-size: 34px;
@@ -55,7 +55,6 @@ footer { border-top: 1px solid #bcbcbc; font-size: .8em; padding-left: 20px; pad
 
 
 .solidblockmenu{                /*SECOND BAR*/
-margin-right: -20px;
 float: left;
 font: bold 17px Arial;
 width: 100%;
