@@ -14,7 +14,7 @@ width: 100%;
 background: #f4d7ad;
 }
 #style_title {
-padding-top: 13px;
+padding-top: 12px;
 padding-left: 20px;
 font-family:Georgia, "Times New Roman", Times, serif;
 font-size: 34px;
@@ -22,7 +22,7 @@ font-style: italic;
 color: #000000;
 }
 #style_subtitle {
-padding-top: 10px;
+padding-top: 9px;
 padding-left: 20px;
 font-family:Georgia, "Times New Roman", Times, serif;
 font-weight: bold;
@@ -53,7 +53,7 @@ footer { border-top: 1px solid #bcbcbc; font-size: .8em; }
 margin: 0;
 padding: 0;
 float: left;
-font: bold 17px Arial;
+font: 18px Arial;
 width: 100%;
 border: 1px solid #FFFFFF;
 border-width: 1px 0;
