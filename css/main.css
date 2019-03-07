@@ -7,14 +7,13 @@ background: #FFFFFF;
 }
 #style_header {                 /*TOP BAR*/
 height: 82px;
-padding-bottom: 10px
 background: #b5d8a6;
 }
 #style_content {                /*MAIN TEXT*/
-/*width: 100%;*/
+width: 100%;
 background: #f4d7ad;
 font-size: 17px;
-  padding-right: 20px;
+padding-right: 20px;
 }
 #style_title {                  /*TOP BAR TITLE*/
 padding-top: 12px;
