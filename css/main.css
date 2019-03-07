@@ -8,11 +8,15 @@ background: #FFFFFF;
 #style_header {                 /*TOP BAR*/
 height: 82px;
 background: #b5d8a6;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 #style_content {                /*MAIN TEXT*/
 width: 100%;
 background: #f4d7ad;
 font-size: 18px;
+    padding-left: 10px;
+  padding-right: 10px;
 }
 #style_title {                  /*TOP BAR TITLE*/
 padding-top: 12px;
