@@ -7,6 +7,7 @@ background: #FFFFFF;
 }
 #style_header {                 /*TOP BAR*/
 height: 92px;
+padding-bottom: 10px
 background: #b5d8a6;
 }
 #style_content {                /*MAIN TEXT*/
@@ -61,7 +62,6 @@ margin-right: -20px;
 padding-left: -20px;
 float: left;
 font: bold 17px Arial;
-width: 980px;
 border: 1px solid #FFFFFF;
 border-width: 1px 0;
 background: #333333; /*background: black url(blde.png) center center repeat-x;*/
