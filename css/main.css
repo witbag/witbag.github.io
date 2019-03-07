@@ -6,7 +6,7 @@ margin: auto;
 background: #FFFFFF;
 }
 #style_header {                 /*TOP BAR*/
-height: 82px;
+height: 92px;
 background: #b5d8a6;
 }
 #style_content {                /*MAIN TEXT*/
@@ -56,10 +56,9 @@ footer { border-top: 1px solid #bcbcbc; font-size: .8em; padding-left: 20px; pad
 
 
 .solidblockmenu{                /*SECOND BAR*/
-/*margin-left: -20px;*/
-/*margin-right: -20px;*/
-margin: 0;
-padding: 0;
+margin-left: -20px;
+margin-right: -20px;
+padding-left: -20px;
 float: left;
 font: bold 17px Arial;
 width: 980px;
