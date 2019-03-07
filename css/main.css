@@ -61,6 +61,7 @@ margin-left: -20px;
 margin-right: -20px;
 float: left;
 font: bold 17px Arial;
+width: 100%;
 border: 1px solid #FFFFFF;
 border-width: 1px 0;
 background: #333333; /*background: black url(blde.png) center center repeat-x;*/
