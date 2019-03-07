@@ -5,15 +5,16 @@ width: 100%;
 margin: auto;
 background: #FFFFFF;
 }
-#style_header {
+#style_header {                 /*TOP BAR*/
 height: 82px;
 background: #b5d8a6;
 }
-#style_content {
+#style_content {                /*MAIN TEXT*/
 width: 100%;
 background: #f4d7ad;
+padding-right: 30px;
 }
-#style_title {
+#style_title {                  /*TOP BAR TITLE*/
 padding-top: 12px;
 padding-left: 20px;
 font-family:Georgia, "Times New Roman", Times, serif;
@@ -21,7 +22,7 @@ font-size: 34px;
 font-style: italic;
 color: #000000;
 }
-#style_subtitle {
+#style_subtitle {               /*TOP BAR SUBTITLE*/
 padding-top: 9px;
 padding-left: 20px;
 font-family:Georgia, "Times New Roman", Times, serif;
@@ -30,14 +31,13 @@ font-size: 16px;
 color: #000000;
 }
 
-
-a { text-decoration: none; color: #0069ba; }
+a { text-decoration: none; color: #0069ba; }                  /*HYPERLINK DECORATION*/
 a:hover { color: #008716; text-decoration: underline; }
 /*a:visited { color: #0066CC; text-decoration: none} */
 
 /*p, ul { font-size: 1em; line-height: 1.2em; color: #000000; } */
 
-h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
+h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }     /*HEADER FONT*/
 h1 { font-size: 2.5em;  }
 h2 { font-size: 2.1em; }
 h3 { font-size: 1.7em; }
@@ -46,10 +46,10 @@ h4 { font-size: 1.4em; }
 nav ul, footer ul { font-size: 1em; font-family: 'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
 nav ul li, footer ul li { display: inline; margin-right: 20px; }
 
-footer { border-top: 1px solid #bcbcbc; font-size: .8em; } 
+footer { border-top: 1px solid #bcbcbc; font-size: .8em; padding-top: 2px; padding-bottom: 2px;}     /*FOOTER*/
 
 
-.solidblockmenu{
+.solidblockmenu{                /*SECOND BAR*/
 margin: 0;
 padding: 0;
 float: left;
