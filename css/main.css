@@ -1,4 +1,4 @@
-body { margin:0 auto; padding:0; width: 980px; background: #dddddd;}
+body { margin:0 auto; padding:0; width: 920px; background: #dddddd;}
 
 #style_container {
 width: 100%;
@@ -58,7 +58,7 @@ footer { border-top: 1px solid #bcbcbc; font-size: .8em; padding-left: 20px; pad
 .solidblockmenu{                /*SECOND BAR*/
 float: left;
 font: bold 17px Arial;
-width: 980px;
+width: 920px;
 position: relative;
 left: -30px;
 /*width: 100%;*/
