@@ -56,7 +56,10 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
     // --------------------------------------------------
     // Add navigation controls
     // --------------------------------------------------
-    map.addControl(new mapboxgl.NavigationControl(),'top-right');
+    map.addControl(
+		new mapboxgl.NavigationControl({
+			showCompass: false})
+	);
 
     // --------------------------------------------------
     // Add distance scale
@@ -97,7 +100,7 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
   			type: 'circle',
   			source: 'places', 
     		paint: {
-        		'circle-radius': 8, // larger clickable area, in pixels
+        		'circle-radius': 12, // larger clickable area, in pixels
         		'circle-color': '#000',
         		'circle-opacity': 0 // completely invisible
     		}
