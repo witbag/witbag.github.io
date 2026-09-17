@@ -9,12 +9,39 @@
 <style>
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+/* Style selector */
+#style-selector {
+position: absolute; top: 10px; left: 10px; z-index: 1;
+background: white;
+padding: 8px;
+border-radius: 4px;
+font-family: Arial, sans-serif;
+font-size: 14px;
+box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
+#style-selector select {font-size: 14px; padding: 4px;}
 </style>
 </head>
+	
 <body>
 <div id="map"></div>
+
+<!-- Map style selector -->
+<div id="style-selector">
+    <label for="style-select">Map:</label>
+    <select id="style-select">
+        <option value="mapbox://styles/mapbox/outdoors-v12"> Outdoors </option>
+        <option value="mapbox://styles/mapbox/standard"> Standard </option>
+        <option value="mapbox://styles/mapbox/satellite-v9"> Satellite </option>
+    </select>
+</div>
+	
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmtpdHdlIiwiYSI6ImNtdTVlZXE2ZzBkemgyenNoOGZsazYzYXYifQ.jIsiWt1bOF69w0oQYvhaxA';
+
+	// --------------------------------------------------
+    // Create map
+    // --------------------------------------------------
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/outdoors-v12',  // good ones: outdoors-v12  satellite-v9  satellite-streets-v12
@@ -22,19 +49,43 @@ body { margin: 0; padding: 0; }
         zoom: 0.8,
         projection: 'equalEarth'
     });
-    map.on('load', () => {
-		
-        // Load the places from the separate GeoJSON file
+    // --------------------------------------------------
+    // Add navigation controls
+    // --------------------------------------------------
+    map.addControl(
+        new mapboxgl.NavigationControl({
+            showZoom: true,
+            showCompass: true
+        }),
+        'top-right'
+    );
+
+    // --------------------------------------------------
+    // Add distance scale
+    // --------------------------------------------------
+    const scale = new mapboxgl.ScaleControl({
+        maxWidth: 120,
+        unit: 'metric'
+    });
+    map.addControl(scale, 'bottom-left');
+
+    // --------------------------------------------------
+    // Function to add places
+    // --------------------------------------------------
+    function addPlaces() {
+
+        // Load the places from the GeoJSON file
         map.addSource('places', {
             type: 'geojson',
             data: './whereivebeen.geojson'
         });
-		
+
         // Draw each place as a small red dot
         map.addLayer({
             id: 'places',
             type: 'circle',
             source: 'places',
+
             paint: {
                 'circle-radius': 3.5,
                 'circle-color': '#e31a1c',
@@ -43,7 +94,9 @@ body { margin: 0; padding: 0; }
             }
         });
 
-        // Show information when a place is clicked
+        // --------------------------------------------------
+        // Click on a place
+        // --------------------------------------------------
         map.on('click', 'places', (e) => {
 
             const feature = e.features[0];
@@ -54,8 +107,9 @@ body { margin: 0; padding: 0; }
             new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(`
-				    <strong>${location}</strong><br>
-                    ${country}`)
+                    <strong>${location}</strong>
+                    <br>
+                    ${country} `)
                 .addTo(map);
         });
 
@@ -67,6 +121,33 @@ body { margin: 0; padding: 0; }
         map.on('mouseleave', 'places', () => {
             map.getCanvas().style.cursor = '';
         });
+    }
+
+    // --------------------------------------------------
+    // Add places when map first loads
+    // --------------------------------------------------
+    map.on('load', () => {
+        addPlaces();
+    });
+
+    // --------------------------------------------------
+    // Map style selector
+    // --------------------------------------------------
+    document
+        .getElementById('style-select')
+        .addEventListener('change', (event) => {
+            const newStyle = event.target.value;
+            map.setStyle(newStyle);
+        });
+
+    // --------------------------------------------------
+    // Re-add places after changing style
+    // --------------------------------------------------
+    map.on('style.load', () => {
+        // Don't add them twice when the map initially loads
+        if (!map.getSource('places')) {
+            addPlaces();
+        }
     });
 </script>
 
