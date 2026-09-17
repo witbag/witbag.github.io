@@ -20,6 +20,10 @@ font-family: Arial, sans-serif;
 font-size: 14px;
 box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
 #style-selector select {font-size: 14px; padding: 4px;}
+
+/* Popup boxes */
+.mapboxgl-popup-content {padding: 8px 10px;}
+.mapboxgl-popup-close-button {padding: 2px 6px;}
 </style>
 </head>
 	
@@ -85,31 +89,44 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
             id: 'places',
             type: 'circle',
             source: 'places',
-
             paint: {
                 'circle-radius': 3.5,
                 'circle-color': '#e31a1c',
-		'circle-stroke-color': '#fff',
-		'circle-stroke-width': 1.5
+				'circle-stroke-color': '#fff',
+				'circle-stroke-width': 1.5
             }
         });
+
+		// Invisible places with greater radius for clicking
+		map.addLayer({
+    		id: 'places-hit-area',
+  			type: 'circle',
+  			source: 'places', 
+    		paint: {
+        		'circle-radius': 8, // larger clickable area, in pixels
+        		'circle-color': '#000',
+        		'circle-opacity': 0 // completely invisible
+    		}
+		});
 
         // --------------------------------------------------
         // Click on a place
         // --------------------------------------------------
-        map.on('click', 'places', (e) => {
-
+        map.on('click', 'places-hit-area', (e) => {
             const feature = e.features[0];
             const coordinates = feature.geometry.coordinates.slice();
             const location = feature.properties.location;
             const country = feature.properties.country;
 
-            new mapboxgl.Popup()
+            new mapboxgl.Popup({
+				closeButton: true,
+        		closeOnClick: true
+    		})
                 .setLngLat(coordinates)
                 .setHTML(`
-                    <strong>${location}</strong>
-                    <br>
-                    ${country} `)
+                    <strong>${location}</strong><br>
+                    ${country} 
+				`)
                 .addTo(map);
         });
 
@@ -117,7 +134,6 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
         map.on('mouseenter', 'places', () => {
             map.getCanvas().style.cursor = 'pointer';
         });
-
         map.on('mouseleave', 'places', () => {
             map.getCanvas().style.cursor = '';
         });
