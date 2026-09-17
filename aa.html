@@ -56,13 +56,7 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
     // --------------------------------------------------
     // Add navigation controls
     // --------------------------------------------------
-    map.addControl(
-        new mapboxgl.NavigationControl({
-            showZoom: true,
-            showCompass: true
-        }),
-        'top-right'
-    );
+    map.addControl(new mapboxgl.NavigationControl(),'top-right');
 
     // --------------------------------------------------
     // Add distance scale
@@ -131,10 +125,10 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.2);}
         });
 
         // Change cursor when hovering over a place
-        map.on('mouseenter', 'places', () => {
+        map.on('mouseenter', 'places-hit-area', () => {
             map.getCanvas().style.cursor = 'pointer';
         });
-        map.on('mouseleave', 'places', () => {
+        map.on('mouseleave', 'places-hit-area', () => {
             map.getCanvas().style.cursor = '';
         });
     }
