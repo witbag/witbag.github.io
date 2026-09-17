@@ -1,69 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Places Map</title>
-
-    <meta
-        name="viewport"
-        content="initial-scale=1,maximum-scale=1,user-scalable=no"
-    >
-
-    <link
-        href="https://api.mapbox.com/mapbox-gl-js/v3.30.0/mapbox-gl.css"
-        rel="stylesheet"
-    >
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.30.0/mapbox-gl.js"></script>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+<meta charset="utf-8">
+<title>whereivebeen</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.30.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.30.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
 </head>
-
 <body>
-
 <div id="map"></div>
-
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmtpdHdlIiwiYSI6ImNtdTVlZXE2ZzBkemgyenNoOGZsazYzYXYifQ.jIsiWt1bOF69w0oQYvhaxA';
-
     const map = new mapboxgl.Map({
         container: 'map',
-
-        style: 'mapbox://styles/mapbox/outdoors-v12',
-
+        style: 'mapbox://styles/mapbox/satellite-streets-v12',  // good ones: outdoors-v12  satellite-v9  satellite-streets-v12
         center: [0, 0],
         zoom: 0.8,
-
-        // Same projection as the Mapbox example
         projection: 'equalEarth'
     });
-
     map.on('load', () => {
-
+		
         // Load the places from the separate GeoJSON file
         map.addSource('places', {
             type: 'geojson',
             data: './whereivebeen.geojson'
         });
-
+		
         // Draw each place as a small red dot
         map.addLayer({
             id: 'places',
             type: 'circle',
             source: 'places',
-
             paint: {
                 'circle-radius': 3.5,
                 'circle-color': '#e31a1c',
@@ -76,18 +47,15 @@
         map.on('click', 'places', (e) => {
 
             const feature = e.features[0];
-
             const coordinates = feature.geometry.coordinates.slice();
-            const name = feature.properties.name;
+            const location = feature.properties.name;
             const country = feature.properties.country;
 
             new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(`
-                    <strong>${name}</strong>
-                    <br>
-                    ${country}
-                `)
+				    <strong>${location}</strong><br>
+                    ${country}`)
                 .addTo(map);
         });
 
