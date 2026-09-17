@@ -17,7 +17,7 @@ body { margin: 0; padding: 0; }
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmtpdHdlIiwiYSI6ImNtdTVlZXE2ZzBkemgyenNoOGZsazYzYXYifQ.jIsiWt1bOF69w0oQYvhaxA';
     const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/satellite-streets-v12',  // good ones: outdoors-v12  satellite-v9  satellite-streets-v12
+        style: 'mapbox://styles/mapbox/outdoors-v12',  // good ones: outdoors-v12  satellite-v9  satellite-streets-v12
         center: [0, 0],
         zoom: 0.8,
         projection: 'equalEarth'
@@ -48,7 +48,7 @@ body { margin: 0; padding: 0; }
 
             const feature = e.features[0];
             const coordinates = feature.geometry.coordinates.slice();
-            const location = feature.properties.name;
+            const location = feature.properties.location;
             const country = feature.properties.country;
 
             new mapboxgl.Popup()
